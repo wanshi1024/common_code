@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="swiper-3.4.2.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="swiper-3.4.2.min.js"></script>
+    <style>
+        #swiper1 {
+            width: 500px;
+            height: 400px;
+            border: 1px red solid
+        }
+
+        .swiper-slide {
+            background: #CA4040;
+            color: white;
+            line-height: 400px;
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 一个页面中引用多个Swiper，可以给每个容器加上ID或Class区分，要保留默认的类名swiper-container。 -->
+    <div class="swiper-container" id="swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">slider1</div>
+            <div class="swiper-slide">slider2</div>
+            <div class="swiper-slide">slider3</div>
+            <div class="swiper-slide">slider4</div>
+            <div class="swiper-slide">slider5</div>
+        </div>
+        <!-- 分页器 -->
+        <div class="swiper-pagination"></div>
+        <!-- 左右切换 -->
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
+    </div>
+    <script>
+        $(function () {
+            var mySwiper = new Swiper('.swiper-container', {
+                autoplay: 1000, //自动滑动 1s滑动一次
+                autoplayDisableOnInteraction: false, //点击分页器后继续自动滑动
+                speed: 500, //滑动一次的时间
+                loop: true, //循环轮播
+                //设置分页器
+                pagination: '.swiper-pagination',
+                paginationClickable: true, //点击分页
+
+                //左右切换  这个暂时有bug
+                // navigation: {
+                //     nextEl: '.swiper-button-next',
+                //     prevEl: '.swiper-button-prev',
+                // },
+            })
+        })
+    </script>
+
+</body>
+
+</html>

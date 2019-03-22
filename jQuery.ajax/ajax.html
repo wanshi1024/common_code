@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+
+        //模板
+        $.ajax({
+            type: "POST",
+            async:true, //是否异步
+            contentType: "application/json; charset=utf-8",//请求的数据类型
+            dataType: "dataType",//预期响应的数据类型
+            url: "url", //请求的路径
+            data: "data", //请求的数据 json
+            //请求成功的回调
+            success: function (response) {
+                
+            },
+            //请求失败的回调
+            error:function(error){
+
+            },
+            //请求结束后的回调
+            complete:function(){
+
+            }
+        });
+
+
+        $.getJSON("url", data,
+            function (data, textStatus, jqXHR) {
+                
+            }
+        );
+        $.get("url", data,
+            function (data, textStatus, jqXHR) {
+                
+            },
+            "dataType"
+        );
+        $.post("url", data,
+            function (data, textStatus, jqXHR) {
+                
+            },
+            "dataType"
+        );
+    </script>
+</body>
+</html>

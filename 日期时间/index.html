@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2></h2>
+    <h2></h2>
+    <script>
+        // 实时显示当前日期时间
+        function showTime() {
+            var d = new Date();
+            var year = d.getFullYear();
+            var month = d.getMonth() + 1; //月份从0算起
+            var day = d.getDate();
+            var weekNum = d.getDay(); //星期 0~6
+            var weeks = ["日", "一", "二", "三", "四", "五", "六"]
+            var hour = d.getHours();
+            var minute = d.getMinutes();
+            var second = d.getSeconds();
+            var str = year + "年" + month + "月" + day + "日" + "星期" + weeks[weekNum]+" " + hour + "时" + minute + "分" +
+                second + "秒"
+            document.getElementsByTagName('h2')[0].innerText = str
+        }
+        showTime()
+        setInterval(showTime, 1000)
+        
+        //倒计时
+        function ShowCountDown(year, month, day) {
+            var now = new Date(); //当前日期
+            var endDate = new Date(year, month, day); //指定日期
+            var leftTime = endDate.getTime() - now.getTime();
+            var dd = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数
+            var hh = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时数
+            var mm = parseInt(leftTime / 1000 / 60 % 60, 10); //计算剩余的分钟数
+            var ss = parseInt(leftTime / 1000 % 60, 10); //计算剩余的秒数
+            dd = checkTime(dd);
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            ss = checkTime(ss); //小于10的话加0
+            document.getElementsByTagName('h2')[1].innerText = "距离" + year + "年" + month + "月" + day + "日还有：" + dd +
+                "天" + hh + "小时" + mm + "分" + ss + "秒";
+        }
+        //补0函数
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        ShowCountDown(2020, 11, 11);
+        setInterval(function () {
+            ShowCountDown(2020, 11, 11);
+        }, 1000);
+    </script>
+</body>
+
+</html>

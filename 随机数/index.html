@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+
+    </div>
+
+    <script>
+        //获取0~num之间的随机数
+        function randomNum(num) {
+            return Math.floor(Math.random() * (num + 1));
+        }
+
+        //获取范围随机数
+        function randomRange(start, end) {
+            return Math.floor(Math.random * (end - start + 1)) + start;
+        }
+
+        //获取随机颜色
+        function randomColor() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return "rgb(" + r + "," + g + "," + b + ")";
+        }
+        //获取随机16进制颜色
+        function randomColor16() {
+            var r = randomNum(255).toString(16);
+            var g = randomNum(255).toString(16);
+            var b = randomNum(255).toString(16);
+            if (r.length < 2) r = "0" + r;
+            if (g.length < 2) g = "0" + g;
+            if (b.length < 2) b = "0" + b;
+            return "#" + r + g + b;
+        }
+
+        var wrap = document.getElementsByClassName('wrap')[0];
+        var i=0;
+        for (var x = 0; x < 29; x++) {
+            for (var y = 0; y < 23; y++) {
+                var div = document.createElement("div");
+                div.index=i++;
+                wrap.appendChild(div);
+                div.style.position = 'absolute';
+                div.style.width = '23px';
+                div.style.height = '23px';
+                div.style.left = x * 23 + 'px';
+                div.style.top = y * 23 + 'px';
+                div.style.background = '#CCC';
+                div.style.border = '1px solid #666';
+                div.onclick = function () {
+                    this.style.background = randomColor();
+                    this.onclick = null;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

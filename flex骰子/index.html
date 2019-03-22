@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex弹性布局-骰子</title>
+    <style>
+        .wrap {
+            width: auto;
+            height: auto;
+            background: #222222;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .dice {
+            width: 110px;
+            height: 110px;
+            background: whitesmoke;
+            border-radius: 14px;
+            display: flex;
+            margin: 20px;
+            box-sizing: border-box;
+            padding: 10px;
+
+        }
+
+        .dice .dot {
+            width: 25px;
+            height: 25px;
+            background: #222222;
+            border-radius: 50%;
+        }
+
+        /* 第一个骰子 */
+        .dice:first-of-type {
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 第二个骰子 */
+        .dice:nth-of-type(2) {
+            justify-content: space-between;
+        }
+
+        .dice:nth-of-type(2) .dot:last-of-type {
+            align-self: flex-end;
+        }
+
+        /* 第三个骰子 */
+        .dice:nth-of-type(3) {
+            justify-content: space-between;
+        }
+
+        .dice:nth-of-type(3) .dot:nth-of-type(2) {
+            align-self: center;
+        }
+
+        .dice:nth-of-type(3) .dot:nth-of-type(3) {
+            align-self: flex-end;
+        }
+
+        /* 第四个骰子 */
+        .dice:nth-of-type(4) {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .dice:nth-of-type(4)>div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 第五个骰子 */
+        .dice:nth-of-type(5) {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .dice:nth-of-type(5)>div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dice:nth-of-type(5)>div:nth-of-type(2) {
+            align-self: center;
+        }
+
+        /* 第六个骰子 */
+        .dice:nth-of-type(6) {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .dice:nth-of-type(6)>div {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="dice">
+            <div class="dot"></div>
+        </div>
+        <div class="dice">
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="dice">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="dice">
+            <div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="dice">
+            <div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div>
+                <div class="dot"></div>
+            </div>
+            <div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+        <div class="dice">
+            <div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

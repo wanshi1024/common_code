@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>validate注册页面</title>
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="js/jquery-1.11.1.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+	<div class="header">
+		<h1>LOGO</h1>
+	</div>
+
+	<div class="main">
+		<div class="mnTit">
+			<h2>欢迎注册</h2>
+			<p>— REGISTER —</p>
+		</div>
+
+		<div class="mnCon">
+			<form action="123.php" id="myform">
+				<div class="row">
+					<input type="text" class="ipt" name="user" placeholder="请输入用户名" />
+				</div>
+
+				<div class="row">
+					<input type="text" class="ipt" name="email" placeholder="请输入邮箱" />
+				</div>
+
+				<div class="row">
+					<input type="text" class="ipt" name="pwd" id="pwd" placeholder="请输入密码" />
+				</div>
+
+				<div class="row">
+					<input type="text" class="ipt" name="pwd2" placeholder="请确认密码" />
+				</div>
+
+				<div class="row">
+					<input type="text" class="ipt" name="qq" placeholder="请输入QQ号" />
+				</div>
+
+				<div class="row">
+					<input type="text" class="ipt code" name="code" placeholder="请输入验证码" />
+					<img src="images/codeImg.JPG" class="codePic" />
+					<a href="#" class="link">看不清？</a>
+				</div>
+
+				<div class="row">
+					<i class="checkbox active"></i>
+					<span class="txt">我已经认真阅读并同意</span>
+					<a href="#" class="fuwu">《服务条款》</a>
+				</div>
+
+				<div class="row">
+					<input type="submit" value="马上注册" class="ipt btn" />
+				</div>
+			</form>
+
+		</div>
+
+
+
+	</div>
+
+	<div class="footer"></div>
+
+	<script>
+		$(function () {
+
+			$(".mnCon .checkbox").click(function () {
+				$(this).toggleClass("active");
+
+				if ($(".mnCon .btn").attr("disabled")) {
+					$(".mnCon .btn").attr("disabled", false)
+				} else {
+					$(".mnCon .btn").attr("disabled", true)
+				}
+			})
+
+
+			$("#myform").validate({
+				errorElement: "em",
+				success: function (label) {
+					label.html("OK").addClass("valid");
+				},
+				errorPlacement: function (error, element) {
+					element.parent().append(error)
+				},
+
+				rules: {
+					user: {
+						required: true,
+						minlength: 3,
+						maxlength: 20,
+						character: true
+
+					},
+					email: {
+						required: true,
+						email: true
+					},
+					pwd: {
+						required: true,
+						minlength: 6,
+						maxlength: 25
+					},
+					pwd2: {
+						required: true,
+						equalTo: "#pwd"
+					},
+					code: {
+						required: true
+					},
+					qq: {
+						required: true,
+						qqValid: true,
+						maxlength: 13
+					}
+
+				},
+
+				messages: {
+					user: {
+						required: "用户名是必填的",
+						minlength: "长度不能小于3位",
+						maxlength: "长度不能超过20位",
+						character: "只能使用字母、数字、下划线,数字不能开头"
+
+					},
+					email: {
+						required: "邮箱是必填的",
+						email: "邮箱格式不正确"
+					},
+					pwd: {
+						required: "密码是必填的",
+						minlength: "长度不能小于6位",
+						maxlength: "长度不能超过25位"
+					},
+					pwd2: {
+						required: "请再次输入密码",
+						equalTo: "两次密码不一致"
+					},
+					code: {
+						required: "请输入验证码"
+					},
+					qq: {
+						required: "QQ是必填项",
+						qqValid: "请输入正确的QQ号码",
+						maxlength: "QQ号码超出了"
+					}
+
+				}
+
+
+			})
+
+			jQuery.validator.addMethod("character", function (value, element) {
+				var cer = /^[a-zA-Z]\w{1,}$/;
+				return this.optional(element) || (cer.test(value));
+			});
+
+			jQuery.validator.addMethod("qqValid", function (value, element) {
+				var qq = /^[1-9]*[1-9][0-9]*$/;
+				return this.optional(element) || (qq.test(value));
+			});
+
+		})
+	</script>
+</body>
+
+</html>

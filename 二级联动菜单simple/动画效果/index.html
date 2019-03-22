@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 300px;
+            height: 300px;
+            border: 1px red solid;
+            margin: 20px auto;
+            position: relative;
+            background: #d2b68b;
+        }
+
+        .choose_city {
+            width: 194px;
+            height: 38px;
+            line-height: 38px;
+            color: rgb(80, 78, 78);
+            padding-left: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            border: 1px skyblue solid;
+            margin-top: 7%;
+            margin-left: 10px;
+            background: white;
+            background-image: url(下拉菜单箭头.png);
+            background-repeat: no-repeat;
+            background-size: 25px;
+            background-position: 95% 52%;
+            user-select: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .level_1,
+        .level_2 {
+            display: none;
+            width: 106px;
+            position: absolute;
+            top: 45px;
+            left: -29px;
+        }
+
+        .level_2 {
+            top: 0px;
+            left: 104px;
+        }
+
+        .level_1>li {
+            height: 38px;
+            line-height: 38px;
+            background: white;
+            border-bottom: 0.5px #ddd solid;
+            padding-left: 1.5em;
+        }
+
+        .level_1>li:hover {
+            cursor: pointer;
+            background: whitesmoke;
+            background-image: url(二级菜单右.png);
+            background-repeat: no-repeat;
+            background-size: 20px;
+            background-position: 95% 52%;
+        }
+
+       
+
+        .level_2>li {
+            height: 38px;
+            line-height: 38px;
+            background: whitesmoke;
+            border-bottom: 0.5px #ddd solid;
+            padding-left: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h2 class="choose_city">选择城市</h2>
+        <ul class="level_1">
+            <li>北京
+                <ul class="level_2">
+                    <li>北京一</li>
+                    <li>北京二</li>
+                    <li>北京三</li>
+                </ul>
+            </li>
+            <li>上海
+                <ul class="level_2">
+                    <li>上海一</li>
+                    <li>上海二</li>
+                    <li>上海三</li>
+                </ul>
+            </li>
+            <li>广东
+                <ul class="level_2">
+                    <li>广东一</li>
+                    <li>广东二</li>
+                    <li>广东三</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script>
+        
+        // 点击选择城市 下拉菜单显示
+        $('.choose_city').click(function (e) { 
+            $('.level_1').slideToggle()
+        });
+        // 一级菜单鼠标移入 显示对应的二级菜单
+        $('.level_1>li').hover(function () {
+            $(this).find('.level_2').show()
+
+        }, function () {
+            $(this).find('.level_2').hide()
+        });
+
+        // 点击二级菜单选项 选中
+        $('.level_2>li').click(function (e) { 
+            e.preventDefault();
+            var str=$(this).text()
+            console.log(str);
+            $('.choose_city').text(str);
+            $('.level_1').hide()
+        });
+    </script>
+</body>
+
+</html>

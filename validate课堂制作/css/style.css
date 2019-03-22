@@ -1,0 +1,148 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    outline: none;
+}
+
+.header {
+    height: 100px;
+    border-bottom: 1px solid #899;
+}
+
+.header h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #333;
+    padding-top: 30px;
+}
+
+
+.main {
+    width: 1200px;
+    border: 1px solid red;
+    margin: 0 auto;
+    padding: 50px 0
+}
+
+.mnTit {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.mnTit h2 {
+    font-size: 32px;
+    color: #111
+}
+
+.mnTit p {
+    font-size: 22px;
+    color: #888
+}
+
+.main .row {
+    padding: 10px 0;
+}
+
+.main .row a {
+    font-size: 14px;
+    color: #099;
+    text-decoration: none;
+}
+
+.main .ipt {
+    width: 380px;
+    height: 38px;
+    border: 1px solid #ccc;
+    margin-left: 410px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.main em.error {
+    font-style: normal;
+    color: #c00;
+    font-size: 14px;
+    margin-left: 10px;
+    background: url(images/error.png) no-repeat left center;
+    padding-left: 30px;
+    background-size: 20px;
+}
+
+.main em.valid {
+    background-image: url(images/ok.png);
+    color: #090
+}
+
+
+.main .ipt.error {
+    border-color: #c00;
+}
+
+.main .ipt.valid {
+    border-color: #090
+}
+
+
+
+.main .code {
+    width: 180px;
+    vertical-align: middle;
+}
+
+.main .codePic {
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.main .link {
+    vertical-align: middle;
+}
+
+.main .checkbox {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    background: url(images/checkbox.png);
+    background-size: 28px;
+    margin-left: 410px;
+    vertical-align: middle;
+}
+
+.main .checkbox.active {
+    background-image: url(images/checkbox-h.png);
+}
+
+
+
+.main .txt {
+    vertical-align: middle;
+    margin: 0 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.main .fuwu {
+    vertical-align: middle;
+}
+
+.main .btn {
+    color: #fff;
+    border: none;
+    background: #099;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.main .btn:disabled {
+    background: #999;
+}
+
+
+
+.footer {
+    border-top: 1px solid #888;
+    height: 100px;
+}
